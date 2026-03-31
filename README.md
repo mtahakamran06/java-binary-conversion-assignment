@@ -57,6 +57,6 @@ A user-defined function that:
 
 ## 👨‍🎓 Author
 
-Your Name  
-BSCS Student  
+Muhammad Taha Kamran
+BSCS
 University of Karachi
