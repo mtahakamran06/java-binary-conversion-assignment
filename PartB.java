@@ -1,35 +1,40 @@
+import java.util.Scanner;
+
 public class PartB {
 
+    // Function to convert integer to binary array
     public static int[] toBinaryArray(int num) {
+        if (num == 0) return new int[]{0}; // special case for 0
 
         int temp = num;
         int count = 0;
 
+        // Count number of bits
         while (temp > 0) {
             temp = temp / 2;
             count++;
         }
 
-        int[] arr = new int[count];
-        int i = 0;
+        int[] binary = new int[count];
+        int i = count - 1;
 
+        // Fill array from end to start
         while (num > 0) {
-            arr[i] = num % 2;
+            binary[i] = num % 2;
             num = num / 2;
-            i++;
+            i--;
         }
 
-        for (int j = 0; j < count / 2; j++) {
-            int tempVal = arr[j];
-            arr[j] = arr[count - j - 1];
-            arr[count - j - 1] = tempVal;
-        }
-
-        return arr;
+        return binary;
     }
 
     public static void main(String[] args) {
-        int[] result = toBinaryArray(27);
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter an integer: ");
+        int num = sc.nextInt();
+
+        int[] result = toBinaryArray(num);
 
         System.out.print("Binary: ");
         for (int bit : result) {
